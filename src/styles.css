@@ -1,0 +1,85 @@
+.weather-app {
+  max-width: 700px;
+  padding: 10px 25px;
+}
+
+header {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+}
+
+.units {
+  position: relative;
+  top: -16px;
+
+  font-size: 18px;
+}
+
+h1,
+h2 {
+  padding-top: 15px;
+  line-height: 1.5;
+  font-size: 50px;
+}
+
+h3,
+h4 {
+  padding-bottom: 15px;
+}
+
+h1,
+h3 {
+  text-align: left;
+  padding-left: 35px;
+}
+h2,
+h4 {
+  text-align: right;
+  padding-right: 35px;
+}
+#current-time {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-left: 35px;
+}
+
+.extra-info {
+  text-align: right;
+  padding-right: 18px;
+  font-size: 17px;
+}
+
+h5 {
+  padding: 30px 20px 25px 40px;
+  font-size: 25px;
+}
+.forecast {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+}
+ul {
+  list-style: none;
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+}
+
+li {
+  text-align: center;
+  font-size: 190%;
+}
+#day-column {
+  background-image: linear-gradient(to top, #e7f0fd 0%, #accbee 100%);
+}
+
+.day,
+.emoji,
+.temperature {
+  margin-bottom: 40px;
+}
+.day {
+  font-weight: 300;
+  padding-top: 30px;
+}
+
+// sort out colors of day colums
+// sort out button spacings
