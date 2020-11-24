@@ -7,11 +7,20 @@ header {
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 
-.units {
+.temp-units {
   position: relative;
-  top: -16px;
+  top: -21px;
 
   font-size: 18px;
+}
+
+.temp-units .active {
+  color: black;
+  cursor: default;
+}
+
+.temp-units .active:hover {
+  text-decoration: none;
 }
 
 h1,
