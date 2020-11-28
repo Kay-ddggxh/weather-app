@@ -22,6 +22,19 @@ function formatDate(date) {
   return `${day} ${hour}:${minute} `;
 }
 
+function formatHours(timestamp) {
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minute = now.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+
+  return `${hour}:${minute}`;
+}
+
 let currentTime = document.querySelector("#current-time");
 let now = new Date();
 currentTime.innerHTML = formatDate(now);
@@ -54,11 +67,37 @@ function displayWeatherConditions(response) {
     .setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `<div class="col-2 border rounded px-4" id="day-column">
+                <li>
+                  <div class="forecast-hour">${formatHours(
+                    forecast.dt * 1000
+                  )}</div>
+                  <img class="emoji" src="http://openweathermap.org/img/wn/${
+                    forecast.weather[0].icon
+                  }@2x.png" />
+                  <div class="temperature">${Math.round(
+                    forecast.main.temp
+                  )}°</div>
+                </li>
+              </div>`;
+  }
+}
+
 function searchCity(city) {
   let apiKeyWeather = "0e309f005b8c859d835c3b5eb9cf22ec";
   let units = "metric";
   let apiUrlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyWeather}&units=${units}`;
   axios.get(apiUrlWeather).then(displayWeatherConditions);
+
+  apiUrlWeather = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKeyWeather}&units=${units}`;
+  axios.get(apiUrlWeather).then(displayForecast);
 }
 
 function handleSubmit(event) {
@@ -111,3 +150,7 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("New York");
+
+// To Do:
+// fix timestamp thingy
+// fix whole forecast section

@@ -84,12 +84,12 @@ li {
   background-image: linear-gradient(to top, #e7f0fd 0%, #accbee 100%);
 }
 
-.day,
+.forecast-hour,
 .emoji,
 .temperature {
   margin-bottom: 40px;
 }
-.day {
+.forecast-hour {
   font-weight: 300;
   padding-top: 30px;
 }
