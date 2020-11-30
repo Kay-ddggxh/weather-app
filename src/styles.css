@@ -67,9 +67,6 @@ h5 {
   padding: 30px 20px 25px 40px;
   font-size: 25px;
 }
-.forecast {
-  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-}
 ul {
   list-style: none;
   padding-inline-start: 20px;
@@ -79,9 +76,6 @@ ul {
 li {
   text-align: center;
   font-size: 190%;
-}
-#day-column {
-  background-image: linear-gradient(to top, #e7f0fd 0%, #accbee 100%);
 }
 
 .forecast-hour,
@@ -99,4 +93,3 @@ li {
 }
 
 // sort out colors of day colums
-// sort out button spacings
