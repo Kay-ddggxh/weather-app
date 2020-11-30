@@ -1,9 +1,11 @@
-function formatDate(date) {
-  let hour = now.getHours();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+
+  let hour = date.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
   }
-  let minute = now.getMinutes();
+  let minute = date.getMinutes();
   if (minute < 10) {
     minute = `0${minute}`;
   }
@@ -17,17 +19,18 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let day = days[now.getDay()];
+  let day = days[date.getDay()];
 
   return `${day} ${hour}:${minute} `;
 }
 
 function formatHours(timestamp) {
-  let hour = now.getHours();
+  let date = new Date(timestamp);
+  let hour = date.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
   }
-  let minute = now.getMinutes();
+  let minute = date.getMinutes();
   if (minute < 10) {
     minute = `0${minute}`;
   }
@@ -35,11 +38,10 @@ function formatHours(timestamp) {
   return `${hour}:${minute}`;
 }
 
-let currentTime = document.querySelector("#current-time");
-let now = new Date();
-currentTime.innerHTML = formatDate(now);
-
 function displayWeatherConditions(response) {
+  let currentTime = document.querySelector("#current-time");
+  currentTime.innerHTML = formatDate(response.data.dt * 1000);
+
   celsiusTemperature = response.data.main.temp;
 
   document.querySelector("#current-temperature").innerHTML = Math.round(
