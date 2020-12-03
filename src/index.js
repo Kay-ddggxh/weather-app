@@ -76,7 +76,7 @@ function displayForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
-    forecastElement.innerHTML += `<div class="col-2 px-4" id="day-column">
+    forecastElement.innerHTML += `<div class="col-2 px-4 border-right" id="day-column">
                 <li>
                   <div class="forecast-hour">${formatHours(
                     forecast.dt * 1000
@@ -154,5 +154,7 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 searchCity("New York");
 
 // To Do:
-// fix timestamp thingy
-// fix whole forecast section
+
+// fix column divider in forecast section
+// add image background to header changing according to weather#
+// add minimum temp to forecast
