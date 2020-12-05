@@ -71,22 +71,23 @@ function displayWeatherConditions(response) {
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = null;
+
   let forecast = null;
+  console.log(response.data);
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
-    forecastElement.innerHTML += `<div class="col-2 px-4 border-right" id="day-column">
+    forecastElement.innerHTML += `<div class="col-2 px-4" id="day-column">
                 <li>
                   <div class="forecast-hour">${formatHours(
                     forecast.dt * 1000
                   )}</div>
-                  <img class="emoji" src="http://openweathermap.org/img/wn/${
+                  <img class="forecast-icon" src="http://openweathermap.org/img/wn/${
                     forecast.weather[0].icon
                   }@2x.png" />
-                  <div class="temperature">${Math.round(
-                    forecast.main.temp
-                  )}°</div>
+                  <div class="forecast-temperature"><strong>${Math.round(
+                    forecast.main.temp_max
+                  )}°  </strong>  ${Math.round(forecast.main.temp_min)}°</div>
                 </li>
               </div>`;
   }
@@ -155,6 +156,5 @@ searchCity("New York");
 
 // To Do:
 
-// fix column divider in forecast section
 // add image background to header changing according to weather#
 // add minimum temp to forecast
